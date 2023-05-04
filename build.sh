@@ -1,0 +1,1 @@
+gcc -I/usr/include/lua5.1 -shared -O2 -o gzlua.so gzlua.c -lz
