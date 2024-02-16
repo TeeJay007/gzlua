@@ -42,6 +42,10 @@ static int load(lua_State *L) {
 
 int luaopen_gzlua(lua_State *L) {
     static const struct luaL_Reg lib[] = {{"load", load}, {NULL, NULL}};
+#if LUA_VERSION_NUM >= 502
+    luaL_newlib(L, lib);
+#else
     luaL_register(L, "gzlua", lib);
+#endif
     return 1;
 }
